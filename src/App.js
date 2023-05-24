@@ -7,10 +7,9 @@ function App() {
   const [numB, setNumB] = useState(0);
   const [numC, setNumC] = useState(0);
   const [numD, setNumD] = useState(0);
-  const [numE, setNumE] = useState(0);
   const [numF, setNumF] = useState(0);
 
-  let indice3 =  (numA*10 + numB*8 + numC*6 + numD*3 + numF*1)/5;
+  let indice3 =  ((numF + numD + numC + numB + numA)/(numF + (((1/3)*numD) + ((1/6)*numC) + ((1/8)*numB) + ((1/10)*numA))));
 
  
 
@@ -56,17 +55,8 @@ function App() {
     min={10} 
     max={100} 
     step={0.03} 
-    value={numE} 
-    onChange={setNumE} 
-    />
-    <br></br>
-
-    <InputNumber 
-    min={10} 
-    max={100} 
-    step={0.03} 
     value={numF} 
-    onChange={setNumF} 
+    onChange={setNumF}
     />
     <div>
       {numA}({typeof numA})
@@ -85,7 +75,7 @@ function App() {
     </div>
 
     <div>
-      {indice3}({typeof indice3})
+      {indice3.toFixed(2)}({typeof indice3})
     </div>
   </>
    
