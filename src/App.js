@@ -15,7 +15,8 @@ function App() {
 
   return(
   <>
-    <InputNumber 
+  <form>
+  <InputNumber 
     min={10} 
     max={100} 
     step={0.03} 
@@ -58,26 +59,13 @@ function App() {
     value={numF} 
     onChange={setNumF}
     />
-    <div>
-      {numA}({typeof numA})
-    </div>
-    <div>
-      {numB}({typeof numB})
-    </div>
-    <div>
-      {numC}({typeof numC})
-    </div>
-    <div>
-      {numD}({typeof numD})
-    </div>
-    <div>
-      {numF}({typeof numF})
-    </div>
+  <br/>
+  <div>
+  {numA}A + {numB}B + {numC}C + {numD}D + {numF}FF = {indice3.toFixed(2)}
 
-    <div>
-      {indice3.toFixed(2)}({typeof indice3})
-    </div>
-  </>
+  </div>
+  </form>
+     </>
    
   )
 
