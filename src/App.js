@@ -11,11 +11,13 @@ function App() {
 
   let indice3 =  ((numF + numD + numC + numB + numA)/(numF + (((1/3)*numD) + ((1/6)*numC) + ((1/8)*numB) + ((1/10)*numA))));
 
- 
+  
 
   return(
   <>
   <form>
+  <img className="profile-photo" src="./calculatori3/public/ufrgs.png" alt={"Carlie Anglemire"}/>
+
   <InputNumber 
     min={10} 
     max={100} 
