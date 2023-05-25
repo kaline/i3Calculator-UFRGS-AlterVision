@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
-import InputNumber from 'react-input-number';
+import ufrgs from './ufrgs.png'; // Tell webpack this JS file uses this image
+import GaugeChart from 'react-gauge-chart'
 
 function App() {
   const [numA, setNumA] = useState(0);
@@ -11,61 +12,79 @@ function App() {
 
   let indice3 =  ((numF + numD + numC + numB + numA)/(numF + (((1/3)*numD) + ((1/6)*numC) + ((1/8)*numB) + ((1/10)*numA))));
 
+  const handleChange = (event, fieldName) => {
+    const result = event.target.value.replace(/\D/g, '');
+  
+    switch (fieldName) {
+      case 'A':
+        setNumA(parseInt(result, 10));
+        break;
+      case 'B':
+        setNumB(parseInt(result, 10));
+        break;
+      case 'C':
+        setNumC(parseInt(result, 10));
+        break;
+      case 'D':
+        setNumD(parseInt(result, 10));
+        break;
+      case 'FF':
+        setNumF(parseInt(result, 10));
+        break;
+      default:
+        break;
+    }
+  };
   
 
   return(
   <>
   <form>
-  <img className="profile-photo" src="./calculatori3/public/ufrgs.png" alt={"Carlie Anglemire"}/>
+  <img className="logoUfrgs" src={ufrgs} alt={"UFRGS logo"}/>
 
-  <InputNumber 
-    min={10} 
-    max={100} 
-    step={0.03} 
-    value={numA} 
-    onChange={setNumA} 
-    />
+  <input
+  type="text"
+  name="A"
+  value={numA}
+  onChange={event => handleChange(event, 'A')}
+/>
+
+ 
     <br></br>
 
-    <InputNumber 
-    min={10} 
-    max={100} 
-    step={0.03} 
-    value={numB} 
-    onChange={setNumB} 
-    />
+    <input 
+   type="text"
+   name="B"  
+   value={numB} 
+   onChange={event => handleChange(event, 'B') }/>
     <br></br>
 
-    <InputNumber 
-    min={10} 
-    max={100} 
-    step={0.03} 
-    value={numC} 
-    onChange={setNumC} 
-    />
+    <input 
+   type="text"
+   name="C"  
+   value={numC} 
+   onChange={event => handleChange(event, 'C') } />
     <br></br>
 
-    <InputNumber 
-    min={10} 
-    max={100} 
-    step={0.03} 
-    value={numD} 
-    onChange={setNumD} 
-    />
+    <input 
+   type="text"
+   name="D"  
+   value={numD} 
+   onChange={event => handleChange(event, 'D') } />
     <br></br>
 
-    <InputNumber 
-    min={10} 
-    max={100} 
-    step={0.03} 
-    value={numF} 
-    onChange={setNumF}
-    />
+    <input 
+   type="text"
+   name="FF"  
+   value={numF} 
+   onChange={event => handleChange(event, 'FF') } />
   <br/>
   <div>
   {numA}A + {numB}B + {numC}C + {numD}D + {numF}FF = {indice3.toFixed(2)}
 
   </div>
+
+  <GaugeChart id="gauge-chart1" />
   </form>
      </>
    
