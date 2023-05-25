@@ -35,6 +35,15 @@ function App() {
         break;
     }
   };
+
+  const cleanField = () =>{
+    setNumA('');
+    setNumB('');
+    setNumC('');
+    setNumD('');
+    setNumF('');
+
+  }
   
 
   return(
@@ -84,9 +93,18 @@ function App() {
 
   </div>
 
-  <GaugeChart id="gauge-chart1" />
+  <GaugeChart id="gauge-chart1" 
+    nrOfLevels={5}
+    arcPadding={0.1}
+    cornerRadius={3}
+    textColor="#AAAAA"
+    percent={indice3/10}/>
+
+<button onClick={cleanField}>Clear</button>
+
   </form>
      </>
+
    
   )
 
