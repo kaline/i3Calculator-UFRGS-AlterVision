@@ -2,7 +2,8 @@ import './App.css';
 import React, { useState } from 'react';
 import ufrgs from './ufrgs.png'; // Tell webpack this JS file uses this image
 import GaugeChart from 'react-gauge-chart'
-
+import FormControl from '@mui/material/FormControl';
+import { InputLabel, FilledInput, Button } from '@mui/material';
 function App() {
   const [numA, setNumA] = useState(0);
   const [numB, setNumB] = useState(0);
@@ -48,46 +49,50 @@ function App() {
 
   return(
   <>
-  <form>
-  <img className="logoUfrgs" src={ufrgs} alt={"UFRGS logo"}/>
+  <body>
+    <img className="logoUfrgs" src={ufrgs} alt={"UFRGS logo"}/>
 
-  <input
-  type="text"
-  name="A"
+<form>
+  <FormControl variant="filled">
+  <InputLabel htmlFor="component-filled">Nota A</InputLabel>
+  <FilledInput id="component-filled" defaultValue="Composed TextField" 
   value={numA}
-  onChange={event => handleChange(event, 'A')}
-/>
+  onChange={event => handleChange(event, 'A')}/>
+  </FormControl>
 
- 
-    <br></br>
+  <FormControl variant="filled">
+  <InputLabel htmlFor="component-filled">Nota B</InputLabel>
+    <FilledInput id="component-filled" defaultValue="Composed TextField"
+    value={numB}
+    onChange={event => handleChange(event, 'B')}/>
+  </FormControl>
 
-    <input 
-   type="text"
-   name="B"  
-   value={numB} 
-   onChange={event => handleChange(event, 'B') }/>
-    <br></br>
+  <FormControl variant="filled">
+  <InputLabel htmlFor="component-filled">Nota C</InputLabel>
 
-    <input 
-   type="text"
-   name="C"  
-   value={numC} 
-   onChange={event => handleChange(event, 'C') } />
-    <br></br>
+    <FilledInput id="component-filled" defaultValue="Composed TextField"
+    value={numC}
+    onChange={event => handleChange(event, 'C')}/>
+  </FormControl>
 
-    <input 
-   type="text"
-   name="D"  
-   value={numD} 
-   onChange={event => handleChange(event, 'D') } />
-    <br></br>
+  <FormControl variant="filled">
+  <InputLabel htmlFor="component-filled">Nota D</InputLabel>
 
-    <input 
-   type="text"
-   name="FF"  
-   value={numF} 
-   onChange={event => handleChange(event, 'FF') } />
-  <br/>
+    <FilledInput id="component-filled" defaultValue="Composed TextField"
+    value={numD}
+    onChange={event => handleChange(event, 'D')}/>
+  </FormControl>
+
+  <FormControl variant="filled">
+  <InputLabel htmlFor="component-filled">Nota FF</InputLabel>
+
+    <FilledInput id="component-filled" defaultValue="Composed TextField"
+    value={numF}
+    onChange={event => handleChange(event, 'FF')}/>
+</FormControl>
+
+
+    
   <div>
   {numA}A + {numB}B + {numC}C + {numD}D + {numF}FF = {indice3.toFixed(2)}
 
@@ -100,10 +105,12 @@ function App() {
     textColor="#AAAAA"
     percent={indice3/10}/>
 
-<button onClick={cleanField}>Clear</button>
+<Button variant='outlined' onClick={cleanField}>Clear</Button>
+</form>
 
-  </form>
-     </>
+ </body>
+  </>
+
 
    
   )
